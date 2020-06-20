@@ -1,4 +1,4 @@
-# Testes de ferramentas que utilizam PLN
+# Testes de ferramentas de Processamento de Linguagem Natural
 Aqui, serão apresentados os testes de ferramentas que utilizam Processamento de Linguagem Natural quando aplicadas 
 ao reconhecimento de voz e texto de palavras escritas e faladas erroneamente, conforme a norma culta da língua portuguesa
 
@@ -115,6 +115,7 @@ por exemplo, realizar análise de sentimentos em um conjunto de dados.
 </ul></br>
 
 <h4>1.2.1. Algoritmo NLTK (exemplo)</h4>
+
 ```
 import nltk
 texto = 'Sr. Verde matou o Coronel. Mas o Sr. Verde gosta de caju.'
@@ -126,6 +127,7 @@ print(tokens)
 
 classes = nltk.pos_tag(tokens)
 print(classes)
+
 ```
 
 <b>sent_tokenize: </b> reconhece o término de frases;</br>
@@ -133,8 +135,11 @@ print(classes)
 <b>chunk: </b> identifica as entidades, como uma empresa e uma pessoa, por exemplo.</br>
 
 <p>A impressão da variável “frases” obteve como resultado:</p>
+
 ```
+
 [‘Sr. Verde matou o Coronel.’] [‘Mas o Sr. Verde gosta de caju’]
+
 ```
 <p>Isso demonstra que o algoritmo foi capaz de reconhecer “Sr.” como uma
 abreviação, em vez do término da primeira frase, que poderia ter ocorrido devido ao
