@@ -65,7 +65,10 @@ fósforo”
 Frase 6: Saídas - T1: “ eu acendi o fogo com palito de fósforo ” T2: “ eu acendi o
 fogo com um palito de fósforo” T3: “eu acendi o fogo com palito de fósforo.”
 
+```
+function testando(){
+}
+```
 
-
-
+<center>Centered text</center>
 
