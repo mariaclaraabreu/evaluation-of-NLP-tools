@@ -146,21 +146,194 @@ abreviação, em vez do término da primeira frase, que poderia ter ocorrido dev
 ponto (.).</p>
 <p>A <b>word.tokenize</b> separa o texto em palava, cada palavra é um token. A impressão
 da variável “tokens” obteve como resultado:</p>
+
 ```
+
 [‘Sr.’, ‘Verde’, ‘matou’, ‘o’, ‘Coronel.’, ‘Mas’, ‘o’, ‘Sr.’, ‘Verde’, ‘gosta’, ‘de’, ‘caju’]
+
 ```
+
 <p>Por último, com a impressão da variável “classes”, pôde ser visto o acerto na
 definição de todas as classes das palavras identificadas, como demonstrado abaixo:</p>
+
 ```
+
 [(‘Sr.’, NNP), (‘Verde’, NNP), (‘matou’, VBD ), (‘Coronel.’, NNP), (‘Mas’, CC), (‘Sr.’, NNP),
 (‘Verde’, JJ), (‘gosta’, MD ), (‘de’, EM), (‘caju’, NNS)]
+
 ```
+
 <p>Os significados de cada abreviação podem ser verificados neste link
 https://www.clips.uantwerpen.be/pages/mbsp-tags.</p>
 <p>Um ponto negativo que se observou ao utilizar essa ferramenta é o fato de,
 caso seja transcrita uma palavra com inicial maiúscula, ele reconhece como
 substantivo próprio, mesmo que não seja. Um exemplo disso é a classificação da
 palavra “Coronel”, que foi considerada NNP (substantivo próprio), em vez de
-NN (substantivo).</p>
+NN (substantivo).</p></br>
+
+
+<h3>1.3. Avaliação serviço Text to Speech da IBM Watson</h3>
+
+<p>O teste desta ferramenta foi realizado utilizando a DEMO disponível no site da
+empresa IBM ( https://www.ibm.com/watson/br-pt/ ). Lá, não houve acesso a
+códigos-fonte, apenas à interface gráfica. Os resultados podem ser visualizados abaixo:</p>
+
+<table>
+  <tr>
+    <td><b>Frase 1:</b> Saídas - T1: “Eu prole” T2: “ Eu planto me.” T3: “E o pranto me.”</td>
+  </tr>
+  <tr>
+    <td><b>Frase 2:</b> Saídas - T1: “ A minha um colher de prático. ” T2: “ A minha é de
+prática” T3: “Minha mãe é é de prático” </td>
+  </tr>
+  <tr>
+    <td><b>Frase 3:</b>  Saídas - T1: “ Eu ando de bicicleta. ” T2: “ Eu ando de bicicleta.” T3:
+“Eu ando de bicicleta.”</td>
+  </tr>
+  <tr>
+    <td><b>Frase 4:</b> Saídas - T1: “ Eu ando de bicicleta. ” T2: “ Eu ando de bicicleta” T3:
+“Eu ando de bicicleta.”</td>
+  </tr>
+  <tr>
+    <td><b>Frase 5:</b> Saídas - T1: “ Eu acende o fogo com um palito de fósforo. ” T2: “ Erro
+acende o fogo conta palito diz fox.” T3: “Os e o assédio fogo com um palito de
+forças”</td>
+  </tr>
+  <tr>
+    <td><b>Frase 6:</b> Saídas - T1: “ Eu acendi o fogo com um palito de fósforo. ” T2: “ Eu
+acende o fogo conta alito disposto.” T3: “Os e o assédio fogo com um palito de
+forças.”</td>
+  </tr>
+</table>
+</br>
+
+<p>Ao realizar a análise, é possível observar que na frase 1 , apenas um teste obteve
+o resultado esperado - interpretação de “Pranto” como “Planto” -, além de que, no T3
+nem mesmo a palavra “Eu” foi reconhecida, considerada como “E o”. Na frase 2 , o
+reconhecedor considerou “Prártico” como sendo a palavra existente no idioma,
+“Prático”; além de não reconhecer em dois dos testes a palavra “cuié” como nenhuma
+existente na língua portuguesa. Em contrapartida, os substantivos “Plástico” e
+“Bicicleta” foram reconhecidos, apesar de, na estrutura das frases que continham essas
+palavras, outras terem sido interpretadas da forma errada.</p>
+
+<h3>1.4. Avaliação do software desenvolvido com o Framework Quasar Speech</
+<p>O teste desta ferramenta foi realizado utilizando a DEMO disponível no site
+https://quasarspeechapi.surge.sh/#/ . Lá, não houve acesso a códigos-fonte, apenas à
+interface gráfica. No entanto, a própria plataforma do Quasar disponibiliza tutoriais de
+como implementar os métodos de reconhecimento de voz. Os resultados podem ser
+visualizados abaixo:</p>
+
+<table>
+  <tr>
+    <td><b>Frase 1:</b> Saídas - T1: “ eu planto me” T2: “ eu planto me” T3: “ eu planto me”</td>
+  </tr>
+  <tr>
+    <td><b>Frase 2:</b> Saídas - T1: “ a minha colher é de plástico ” T2: “a minha colher de
+plástico” T3: “a minha colher é de plástico” </td>
+  </tr>
+  <tr>
+    <td><b>Frase 3:</b>  Saídas - T1: “ eu ando de bicicleta ” T2: “ eu ando de bicicleta.” T3: “Eu
+ando de bicicleta.”</td>
+  </tr>
+  <tr>
+    <td><b>Frase 4:</b> Saídas - T1: “ eu ando de bicicleta. ” T2: “ eu ando de bicicleta” T3: “eu
+ando de bicicleta.”</td>
+  </tr>
+  <tr>
+    <td><b>Frase 5:</b> Saídas - T1: “ eu acendi o fogo com palito de fósforo. ” T2: “ eu acendi
+o fogo com palito de fósforo” T3: “ eu acendi o fogo com palito de fósforo”</td>
+  </tr>
+  <tr>
+    <td><b>Frase 6:</b> Saídas - T1: “ eu acendi o fogo com palito de fósforo ” T2: “ eu acendi
+o fogo com palito de fósforo” T3: “ eu acendi o fogo com palito de fósforo”</td>
+  </tr>
+</table>
+</br>
+
+<p>Ao realizar a análise, é possível observar que para todas as frases foram obtidas
+boas saídas, com exceção do fato de que a palavra que deveria ser identificada como
+milho, foi reconhecida como o pronome “Me”, haja visto que “Mi” e “Me” possuem a
+mesma pronúncia e este último é validado como existente na língua portuguesa. Além
+disso, foram ocultadas, em alguns resultados, a monossílaba “um”, o que, apesar de
+deixar a comunicação melhor em diálogos humanos reais, não são tão relevantes na
+interpretação de um contexto.</p>
+
+<h3>1.5. Aplicação em Javascript e usando a API Speech</h3>
+<p>A API Speech permite que os desenvolvedores forneçam a entrada de voz e recursos de
+saída de texto-para-voz em um navegador web. A própria API é independente da
+implementação de reconhecimento e síntese de fala subjacente e pode suportar
+reconhecimento e síntese baseados em servidor e em cliente / incorporado.
+O código dessa aplicação encontra-se nesse repositório (e os códigos das outras ferramentas também)  e abaixo com alguns comentários.</p>
+
+
+```
+
+window.addEventListener('DOMContentLoaded', function(){
+
+	var btn_gravacao = document.querySelector('#btn_gravar_audio'); //habilita o microfone
+	//resp por receber a transcrição do audio
+	var transcricao_audio = '';
+	//controle se esta gravando ou n
+	var esta_gravando = false;
+
+	//verificar se o navegador dá suporte a API
+	if(window.SpeechRecognition || window.webkitSpeechRecognition){
+		var speech_api = window.SpeechRecognition || window.webkitSpeechRecognition;
+		var recebe_audio = new speech_api();
+		// definição de parâmetros de controle para o uso da api
+		recebe_audio.continuous = true; //continua ou nao
+		recebe_audio.interimResults = true; // o resultado pode ser alterado ou n
+		recebe_audio.lang = "pt-BR"; //linguagem a ser usada
+
+		//métodos de controle  (garante a mudança de texto do botao)
+		recebe_audio.onstart = function(){
+			esta_gravando = true;
+			btn_gravacao.innerHTML = 'Gravando/Parar gravação';
+		};
+		recebe_audio.onend = function(){
+			esta_gravando = false;
+			btn_gravacao.innerHTML = 'Iniciar gravação';
+		};
+		//método para capturar o resultado do audio
+		recebe_audio.onresult = function(event){
+			var interim_transcript = '';
+			for(var i = event.resultIndex; i < event.results.length; i++){
+				if(event.results[i].isFinal){
+					transcricao_audio += event.results[i][0].transcript;
+				}else{
+					interim_transcript += event.results[i][0].transcript;
+				}
+				var resultado = transcricao_audio || interim_transcript;
+				document.getElementById('campo_texto').innerHTML = resultado;
+			}
+		};
+
+		btn_gravacao.addEventListener('click', function(e){
+			if(esta_gravando){
+				recebe_audio.stop();
+				return;
+			}
+			recebe_audio.start();
+		}, false);
+
+	}else{
+		console.log('Navegador não apresenta suporte a api');
+	}
+
+}, false);
+
+
+```
+
+<h3>2. Conclusão </h3>
+<p>Os estudos foram úteis para o conhecimento de diferentes tipos de ferramentas e poderá
+direcionar o estudo para a análise profunda dos algoritmos utilizados nos recursos e,
+com isso, poderão ser encontradas meios de melhorá-los de forma a atender ao
+reconhecimento de padrões relacionados a palavras pronunciadas de forma incorreta,
+conforme a norma culta.</p>
+<p>Dentre as ferramentas testadas, a que demonstrou os melhores resultados foi a
+API da google em Python . Outros recursos também foram encontrados, como a API
+Houndify e a Microsoft Bing Voice Recognition , no entanto não foram testadas pelo fato
+de a primeira não reconhecer a língua portuguesa e a segunda ser paga.</>
 
 
