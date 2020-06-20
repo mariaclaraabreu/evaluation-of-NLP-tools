@@ -216,7 +216,7 @@ existente na língua portuguesa. Em contrapartida, os substantivos “Plástico�
 “Bicicleta” foram reconhecidos, apesar de, na estrutura das frases que continham essas
 palavras, outras terem sido interpretadas da forma errada.</p>
 
-<h3>1.4. Avaliação do software desenvolvido com o Framework Quasar Speech</
+<h3>1.4. Avaliação do software desenvolvido com o Framework Quasar Speech</h3>
 <p>O teste desta ferramenta foi realizado utilizando a DEMO disponível no site
 https://quasarspeechapi.surge.sh/#/ . Lá, não houve acesso a códigos-fonte, apenas à
 interface gráfica. No entanto, a própria plataforma do Quasar disponibiliza tutoriais de
